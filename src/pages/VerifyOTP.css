@@ -1,0 +1,9 @@
+.verify-otp-container {
+    width: 300px;
+    margin: auto;
+    text-align: center;
+    background-color: #1e1e1e;
+    padding: 20px;
+    border-radius: 10px;
+    color: white;
+}

@@ -1,0 +1,89 @@
+@import url('https://fonts.googleapis.com/css2?family=Gotham:wght@300;400;500;700&display=swap');
+
+body {
+    background-color: #dedede; /* Matches Landing Page Background */
+    color: white;
+    font-family: 'Gotham', sans-serif;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+}
+
+.signup-container {
+    width: 400px;
+    padding: 30px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+    text-align: center;
+}
+
+h2 {
+    font-size: 2rem;
+    font-weight: 500;
+    margin-bottom: 20px;
+    color: black; /* Makes the heading visible */
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+input {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 5px;
+    color: black;
+    font-size: 1rem;
+}
+
+input:focus {
+    outline: none;
+    border: 1px solid #ffcc00;
+}
+
+button {
+    width: 100%;
+    padding: 12px;
+    background: #ffcc00;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+    color: black;
+}
+
+button:hover {
+    background: #ff9900;
+    transform: scale(1.05);
+}
+
+.error {
+    color: #ff4c4c;
+    font-size: 14px;
+    margin-top: 5px;
+}
+
+.login-link {
+    margin-top: 15px;
+    font-size: 0.9rem;
+    color:#000000;
+}
+
+.login-link a {
+    color: #ffcc00;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.login-link a:hover {
+    text-decoration: underline;
+}

@@ -12,6 +12,7 @@ export default function Login() {
         e.preventDefault();
         try {
             const res = await axios.post('/api/auth/login', form);
+            localStorage.setItem('token', res.data.token);
             alert("Login Successful!");
             navigate('/dashboard'); // Redirect to dashboard after login
         } catch (err) {

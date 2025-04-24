@@ -86,3 +86,21 @@ button:hover {
 .extra-links a:hover {
     text-decoration: underline;
 }
+
+.back-link {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    color: #333;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1rem;
+    padding: 5px 10px;
+    transition: all 0.3s ease;
+    z-index: 10;
+}
+
+.back-link:hover {
+    color: #ffcc00;
+    transform: translateX(-5px);
+}

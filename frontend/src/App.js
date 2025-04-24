@@ -6,6 +6,9 @@ import Login from './pages/Login';
 import VerifyOTP from './pages/VerifyOTP';
 import ResetPassword from './pages/ResetPassword';
 import Dashboard from './pages/Dashboard';
+import Professors from './pages/Professors';
+import Courses from './pages/Courses';
+import Recommendations from './pages/Recommendations';
 import ProtectedRoute from './components/ProtectedRoute';
 
 function App() {
@@ -22,6 +25,30 @@ function App() {
                     element={
                         <ProtectedRoute>
                             <Dashboard />
+                        </ProtectedRoute>
+                    } 
+                />
+                <Route 
+                    path="/professors" 
+                    element={
+                        <ProtectedRoute>
+                            <Professors />
+                        </ProtectedRoute>
+                    } 
+                />
+                <Route 
+                    path="/courses" 
+                    element={
+                        <ProtectedRoute>
+                            <Courses />
+                        </ProtectedRoute>
+                    } 
+                />
+                <Route 
+                    path="/recommendations" 
+                    element={
+                        <ProtectedRoute>
+                            <Recommendations />
                         </ProtectedRoute>
                     } 
                 />

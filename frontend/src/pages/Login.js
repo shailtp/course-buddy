@@ -21,18 +21,23 @@ export default function Login() {
     };
 
     return (
-        <div className="login-container">
-            <h2>Login</h2>
-            <form onSubmit={handleSubmit}>
-                <input type="email" placeholder="Enter your SFSU Email" required onChange={e => setForm({ ...form, email: e.target.value })} />
-                <input type="password" placeholder="Enter Password" required onChange={e => setForm({ ...form, password: e.target.value })} />
-                {error && <p className="error">{error}</p>}
-                <button type="submit">Login</button>
-            </form>
-            <div className="extra-links">
-                <Link to="/reset-password">Forgot Password?<br></br></Link>
-                <Link to="/signup">Don't have an account? Signup</Link>
+        <>
+            <Link to="/" className="back-link">
+                ← Go Back
+            </Link>
+            <div className="login-container">
+                <h2>Login</h2>
+                <form onSubmit={handleSubmit}>
+                    <input type="email" placeholder="Enter your SFSU Email" required onChange={e => setForm({ ...form, email: e.target.value })} />
+                    <input type="password" placeholder="Enter Password" required onChange={e => setForm({ ...form, password: e.target.value })} />
+                    {error && <p className="error">{error}</p>}
+                    <button type="submit">Login</button>
+                </form>
+                <div className="extra-links">
+                    <Link to="/reset-password">Forgot Password?<br></br></Link>
+                    <Link to="/signup">Don't have an account? Signup</Link>
+                </div>
             </div>
-        </div>
+        </>
     );
 }

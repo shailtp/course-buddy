@@ -14,7 +14,7 @@ export default function Login() {
             const res = await axios.post('/api/auth/login', form);
             localStorage.setItem('token', res.data.token);
             alert("Login Successful!");
-            navigate('/dashboard'); // Redirect to dashboard after login
+            navigate('/dashboard');
         } catch (err) {
             setError(err.response?.data?.message || "Invalid login credentials.");
         }

@@ -1,12 +1,26 @@
 const express = require('express');
-const { getRecommendations } = require('../services/recommendationModel');
-
 const router = express.Router();
+const { 
+    getRecommendations,
+    getAllProfessors,
+    getProfessorById,
+    getAllCourses,
+    getCourseByIdentifier,
+    getCoursesByProfessorId 
+} = require('../controllers/recommendationController');
+const { protect } = require('../middleware/authMiddleware');
 
-router.get('/:userId', async (req, res) => {
-    const userId = req.params.userId;
-    const recommendations = await getRecommendations(userId);
-    res.json({ recommendations });
-});
+// Main recommendation route
+router.post('/recommendations', protect, getRecommendations);
 
+// Professor routes
+router.get('/professors', getAllProfessors);
+router.get('/professors/:id', getProfessorById);
+
+// Course routes - order matters! More specific routes first
+router.get('/courses/professor/:id', getCoursesByProfessorId);
+router.get('/courses/:identifier', getCourseByIdentifier);
+router.get('/courses', getAllCourses);
+
+// Export the router
 module.exports = router;

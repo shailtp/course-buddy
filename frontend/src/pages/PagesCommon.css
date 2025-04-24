@@ -4,23 +4,26 @@
     padding: 3rem 2rem;
     font-family: 'Gotham', sans-serif;
     position: relative;
+    color: #333;
 }
 
 .back-to-dashboard {
     position: absolute;
     top: 20px;
-    left: 80px;
+    left: 20px;
     color: #333;
     text-decoration: none;
     font-weight: bold;
     font-size: 1rem;
     padding: 5px 10px;
     transition: all 0.3s ease;
+    display: inline-block;
 }
 
 .back-to-dashboard:hover {
-    color: #ffcc00;
+    color: #0066cc;
     transform: translateX(-5px);
+    text-decoration: none;
 }
 
 h1 {
@@ -28,6 +31,23 @@ h1 {
     color: #333;
     margin-bottom: 1.5rem;
     text-align: center;
+}
+
+h2, h3, h4, h5, h6 {
+    color: #333;
+}
+
+p {
+    color: #444;
+}
+
+a {
+    color: #0066cc;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
 }
 
 .page-description {

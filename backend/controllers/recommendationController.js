@@ -1,7 +1,7 @@
 const Course = require('../models/Course');
 const Professor = require('../models/Professor');
 
-// Local recommendation algorithm that uses real data from MongoDB
+
 const generateRecommendations = (coursesData, takenCourses, numCourses) => {
     console.log('Using local recommendation algorithm with real data');
     

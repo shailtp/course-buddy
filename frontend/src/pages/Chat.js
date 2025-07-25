@@ -17,7 +17,7 @@ const SAMPLE_QUESTIONS = [
 function formatLLMResponse(text) {
     // Basic formatting: handle markdown-like bold, numbered lists, and newlines
     let formatted = text
-        .replace(/\*\*(.*?)\*\*/g, '<b>$1</b>') // bold
+        .replace(/\*\*(.*?)\*\*/g, '<b>$1</b>') 
         .replace(/\n\s*\d+\./g, match => `<br/>${match.trim()}`) // numbered list
         .replace(/\n\s*\-/g, match => `<br/>${match.trim()}`) // bullet list
         .replace(/\n/g, '<br/>'); // newlines
@@ -68,7 +68,7 @@ export default function Chat() {
         setError(null);
         setHasUserInput(true);
         try {
-            // Compose context for the LLM (no user data)
+            // Compose context for the LLM
             const contextPrompt = `Courses: ${JSON.stringify(context.courses)}\nProfessors: ${JSON.stringify(context.professors)}\nChat history: ${JSON.stringify(messages)}`;
             const openrouterMessages = [
                 { role: 'system', content: 'You are Course Buddy GPT, a helpful academic assistant for SFSU Computer Science students. Use the provided context to answer questions about courses, professors, and give personalized recommendations.' },

@@ -17,12 +17,7 @@ export default function Dashboard() {
     useEffect(() => {
         const fetchUserData = async () => {
             try {
-                // Commented out until backend API endpoint is implemented
-                // const token = localStorage.getItem('token');
-                // const res = await axios.get('/api/auth/me', {
-                //     headers: { Authorization: `Bearer ${token}` }
-                // });
-                // setUser(res.data);
+               
             } catch (err) {
                 console.error('Error fetching user data:', err);
             }

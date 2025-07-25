@@ -41,7 +41,7 @@ export default function Courses() {
             const response = await axios.get(`http://localhost:5001/api/courses/${courseId}`);
             setCourseDetails(response.data);
         } catch (err) {
-            // We'll just show what we have without the additional details
+        
         } finally {
             setDetailsLoading(false);
         }

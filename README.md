@@ -1,70 +1,310 @@
-# Getting Started with Create React App
+# Course Buddy 🎓
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A comprehensive web application designed to help San Francisco State University Computer Science students make informed decisions about course selection and professor choices.
 
-## Available Scripts
+## 📋 Project Overview
 
-In the project directory, you can run:
+Course Buddy is a full-stack web application that provides:
+- **Professor Information**: Browse and find details about CS professors with ratings and reviews
+- **Course Information**: Explore Computer Science courses, prerequisites, and descriptions
+- **AI-Powered Recommendations**: Get personalized course suggestions based on completed courses
+- **Course Buddy GPT**: Interactive chatbot for course selection guidance
 
-### `npm start`
+## 🎯 Problem Statement
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+CS students often struggle with:
+- Finding the right professors for their courses
+- Understanding course prerequisites and difficulty levels
+- Making informed decisions about course selection
+- Getting personalized recommendations based on their academic background
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Course Buddy solves these challenges by providing a centralized platform with comprehensive course and professor data, enhanced with AI-powered recommendations.
 
-### `npm test`
+## 🛠️ Tech Stack
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Frontend
+- **React.js** - User interface framework
+- **React Router** - Client-side routing
+- **Axios** - HTTP client for API requests
+- **CSS3** - Styling and responsive design
 
-### `npm run build`
+### Backend
+- **Node.js** - Server runtime environment
+- **Express.js** - Web application framework
+- **MongoDB** - NoSQL database
+- **Mongoose** - MongoDB object modeling
+- **JWT** - Authentication and authorization
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### AI/ML
+- **OpenRouter API** - LLM integration for recommendations and chatbot
+- **Custom Recommendation Algorithm** - Local algorithm for course suggestions
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### DevOps
+- **Docker** - Containerization
+- **Docker Compose** - Multi-container orchestration
+- **AWS EC2** - Cloud hosting
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## 🚀 Features
 
-### `npm run eject`
+### 1. Professor Information
+- Searchable professor database
+- RateMyProfessors integration
+- Detailed ratings and reviews
+- Course offerings per professor
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### 2. Course Information
+- Complete course catalog
+- Prerequisites and descriptions
+- Professor assignments
+- Course difficulty indicators
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### 3. AI-Powered Recommendations
+- Multi-step recommendation form
+- Prerequisites validation
+- Professor quality consideration
+- Course level prioritization
+- Regeneration capability (up to 3 times)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### 4. Course Buddy GPT
+- Interactive chatbot interface
+- Context-aware responses
+- Course and professor queries
+- Sample questions for guidance
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## 📦 Prerequisites
 
-## Learn More
+Before running this project, make sure you have:
+- Node.js (v16 or higher)
+- npm or yarn
+- MongoDB (local or cloud)
+- OpenRouter API key
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## 🔧 Installation & Setup
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### 1. Clone the Repository
+```bash
+git clone <your-repository-url>
+cd course-buddy
+```
 
-### Code Splitting
+### 2. Backend Setup
+```bash
+cd backend
+npm install
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Create a `.env` file in the backend directory:
+```env
+MONGO_URI=your_mongodb_connection_string
+JWT_SECRET=your_jwt_secret_key
+PORT=5001
+```
 
-### Analyzing the Bundle Size
+### 3. Frontend Setup
+```bash
+cd frontend
+npm install
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+Create a `.env` file in the frontend directory:
+```env
+REACT_APP_OPENROUTER_KEY=your_openrouter_api_key
+```
 
-### Making a Progressive Web App
+### 4. OpenRouter API Setup
+1. Visit [OpenRouter](https://openrouter.ai/)
+2. Create an account and get your API key
+3. Add the key to your frontend `.env` file
+4. The application uses the `openai/gpt-3.5-turbo` model
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## 🏃‍♂️ Running Locally
 
-### Advanced Configuration
+### Development Mode
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+1. **Start Backend Server**
+```bash
+cd backend
+npm start
+```
+Backend will run on `http://localhost:5001`
 
-### Deployment
+2. **Start Frontend Development Server**
+```bash
+cd frontend
+npm start
+```
+Frontend will run on `http://localhost:3000`
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+### Production Mode with Docker
 
-### `npm run build` fails to minify
+1. **Build and Run with Docker Compose**
+```bash
+docker-compose up --build
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+2. **Access the Application**
+- Frontend: `http://localhost:3000`
+- Backend API: `http://localhost:5001`
+
+## 🐳 Docker Deployment
+
+### Local Docker Testing
+```bash
+# Build and start all services
+docker-compose up --build
+
+# Run in background
+docker-compose up -d --build
+
+# View logs
+docker-compose logs -f
+
+# Stop services
+docker-compose down
+```
+
+### AWS EC2 Deployment
+See `README-DEPLOYMENT.md` for detailed AWS EC2 deployment instructions.
+
+## 📊 Database Schema
+
+### User Model
+```javascript
+{
+  name: String,
+  email: String,
+  personalEmail: String,
+  password: String,
+  completed_courses: [String],
+  isVerified: Boolean
+}
+```
+
+### Professor Model
+```javascript
+{
+  name: String,
+  courses_offered: [String],
+  overall_quality: Number,
+  would_take_again: Number,
+  difficulty: Number,
+  rmp_link: String
+}
+```
+
+### Course Model
+```javascript
+{
+  course_number: String,
+  course_title: String,
+  prerequisites: String,
+  description: String,
+  professors: [ObjectId]
+}
+```
+
+## 🔐 Authentication
+
+The application uses JWT (JSON Web Tokens) for authentication:
+- Protected routes require valid JWT tokens
+- Tokens are stored in localStorage
+- Automatic token validation on API requests
+
+## 🤖 AI Integration
+
+### Recommendation System
+- Uses local algorithm for course recommendations
+- Considers prerequisites, professor ratings, and course levels
+- Generates 3x requested recommendations for regeneration
+
+### Chatbot (Course Buddy GPT)
+- OpenRouter API integration
+- Context-aware responses using course and professor data
+- Sample questions for user guidance
+
+## 📱 API Endpoints
+
+### Authentication
+- `POST /api/auth/register` - User registration
+- `POST /api/auth/login` - User login
+- `GET /api/auth/me` - Get user profile
+
+### Courses
+- `GET /api/courses` - Get all courses
+- `GET /api/courses/:id` - Get specific course
+- `GET /api/courses/professor/:id` - Get courses by professor
+
+### Professors
+- `GET /api/professors` - Get all professors
+- `GET /api/professors/:id` - Get specific professor
+
+### Recommendations
+- `POST /api/recommendations` - Get course recommendations
+
+## 🧪 Testing
+
+```bash
+# Frontend tests
+cd frontend
+npm test
+
+# Backend tests (if implemented)
+cd backend
+npm test
+```
+
+## 📈 Performance Optimizations
+
+- Lazy loading for course and professor data
+- Efficient database queries with indexing
+- Responsive design for mobile devices
+- Optimized Docker images
+
+## 🔧 Troubleshooting
+
+### Common Issues
+
+1. **MongoDB Connection Error**
+   - Check your MongoDB connection string
+   - Ensure MongoDB is running
+
+2. **OpenRouter API Errors**
+   - Verify your API key is correct
+   - Check API key permissions
+
+3. **Port Conflicts**
+   - Ensure ports 3000 and 5001 are available
+   - Check for other running services
+
+4. **Docker Issues**
+   - Clear Docker cache: `docker system prune`
+   - Rebuild containers: `docker-compose build --no-cache`
+
+## 🤝 Contributing
+
+1. Fork the repository
+2. Create a feature branch
+3. Make your changes
+4. Test thoroughly
+5. Submit a pull request
+
+## 📄 License
+
+This project is licensed under the MIT License.
+
+## 👨‍💻 Author
+
+**Shail Patel**
+- Email: patelshail233@gmail.com
+- SFSU Email: spatel37@sfsu.edu
+
+## 🙏 Acknowledgments
+
+- San Francisco State University CS Department
+- RateMyProfessors for professor data
+- OpenRouter for AI capabilities
+- React and Node.js communities
+
+---
+
+**Course Buddy** - Making course selection easier for SFSU CS students! 🎓✨

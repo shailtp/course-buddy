@@ -7,9 +7,9 @@ export default function Dashboard() {
     const [showUserModal, setShowUserModal] = useState(false);
     const [showLogoutConfirm, setShowLogoutConfirm] = useState(false);
     const [user, setUser] = useState({
-        name: "Student Name",
-        email: "personal@example.com",
-        sfsuEmail: "student@sfsu.edu"
+        name: "Shail Patel",
+        email: "patelshail233@gmail.com",
+        sfsuEmail: "spatel37@sfsu.edu"
     });
     const navigate = useNavigate();
 
@@ -109,6 +109,13 @@ export default function Dashboard() {
                     <div className="tile-content">
                         <h2>LLM powered Course Recommendations for Fall'25</h2>
                         <p>Get personalized course suggestions</p>
+                    </div>
+                </Link>
+
+                <Link to="/chat" className="tile">
+                    <div className="tile-content">
+                        <h2>Course Buddy GPT</h2>
+                        <p>Personal course selection chatbot</p>
                     </div>
                 </Link>
             </div>

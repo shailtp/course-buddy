@@ -167,7 +167,7 @@ export default function Professors() {
                             </div>
                         )}
                     </div>
-                </div>
+            </div>
             )}
         </div>
     );

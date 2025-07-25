@@ -17,7 +17,7 @@ router.post('/recommendations', protect, getRecommendations);
 router.get('/professors', getAllProfessors);
 router.get('/professors/:id', getProfessorById);
 
-// Course routes - order matters! More specific routes first
+// Course routes
 router.get('/courses/professor/:id', getCoursesByProfessorId);
 router.get('/courses/:identifier', getCourseByIdentifier);
 router.get('/courses', getAllCourses);

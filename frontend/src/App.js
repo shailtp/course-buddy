@@ -10,6 +10,7 @@ import Professors from './pages/Professors';
 import Courses from './pages/Courses';
 import Recommendations from './pages/Recommendations';
 import ProtectedRoute from './components/ProtectedRoute';
+import Chat from './pages/Chat';
 
 function App() {
     return (
@@ -49,6 +50,14 @@ function App() {
                     element={
                         <ProtectedRoute>
                             <Recommendations />
+                        </ProtectedRoute>
+                    } 
+                />
+                <Route 
+                    path="/chat" 
+                    element={
+                        <ProtectedRoute>
+                            <Chat />
                         </ProtectedRoute>
                     } 
                 />

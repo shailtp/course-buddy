@@ -288,22 +288,7 @@ npm test
 4. Test thoroughly
 5. Submit a pull request
 
-## 📄 License
 
-This project is licensed under the MIT License.
-
-## 👨‍💻 Author
-
-**Shail Patel**
-- Email: patelshail233@gmail.com
-- SFSU Email: spatel37@sfsu.edu
-
-## 🙏 Acknowledgments
-
-- San Francisco State University CS Department
-- RateMyProfessors for professor data
-- OpenRouter for AI capabilities
-- React and Node.js communities
 
 ---
 

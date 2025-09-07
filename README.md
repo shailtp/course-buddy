@@ -8,7 +8,7 @@ Course Buddy is a full-stack web application that provides:
 - **Professor Information**: Browse and find details about CS professors with ratings and reviews
 - **Course Information**: Explore Computer Science courses, prerequisites, and descriptions
 - **AI-Powered Recommendations**: Get personalized course suggestions based on completed courses
-- **Course Buddy GPT**: Interactive chatbot for course selection guidance
+- **Course Buddy GPT**: Interactive Context Aware RAG chatbot for course selection guidance 
 
 ## 🎯 Problem Statement
 

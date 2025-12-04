@@ -1,5 +1,11 @@
 const Course = require('../models/Course');
 const Professor = require('../models/Professor');
+const { ragQuery } = require('../services/ragService');
+const axios = require('axios');
+
+// OpenRouter configuration for chat completions
+const OPENROUTER_API_KEY = process.env.OPENROUTER_API_KEY;
+const OPENROUTER_API_URL = 'https://openrouter.ai/api/v1/chat/completions';
 
 
 const generateRecommendations = (coursesData, takenCourses, numCourses) => {
@@ -453,11 +459,125 @@ const getCoursesByProfessorId = async (req, res) => {
     }
 };
 
+// @desc    Chat query with RAG-enhanced context (hybrid approach)
+// @route   POST /api/chat/query
+// @access  Private
+const chatQuery = async (req, res) => {
+    try {
+        console.log('=== START: RAG-Enhanced Chat Query ===');
+        const { question, conversationHistory } = req.body;
+
+        if (!question) {
+            return res.status(400).json({ message: 'Question is required' });
+        }
+
+        console.log('User question:', question);
+
+        // Step 1: Fetch structured data (courses and professors)
+        const [allCourses, allProfessors] = await Promise.all([
+            Course.find({}).lean(),
+            Professor.find({}).lean()
+        ]);
+
+        console.log(`Loaded ${allCourses.length} courses and ${allProfessors.length} professors`);
+
+        // Step 2: Perform RAG query to get relevant student reviews
+        const ragResult = await ragQuery(question, 5);
+        console.log(`RAG query returned ${ragResult.reviews.length} relevant reviews`);
+
+        // Step 3: Build comprehensive context for LLM
+        const structuredDataContext = `
+You have access to the following structured data:
+- ${allCourses.length} computer science courses with prerequisites and descriptions
+- ${allProfessors.length} professors with their ratings, difficulty levels, and courses taught
+
+Courses: ${JSON.stringify(allCourses.slice(0, 50))} // Limit to first 50 to save tokens
+Professors: ${JSON.stringify(allProfessors)}
+`;
+
+        const reviewContext = ragResult.hasResults 
+            ? `\n\n${ragResult.context}` 
+            : '\n\nNo specific student reviews were found for this query, but you can still answer based on the structured data.';
+
+        // Step 4: Build messages for OpenAI
+        const messages = [
+            {
+                role: 'system',
+                content: `You are Course Buddy GPT, a helpful academic assistant for SFSU Computer Science students. 
+You have access to two types of information:
+1. Structured data about courses (with prerequisites, descriptions) and professors (with overall ratings)
+2. Natural language student reviews from RateMyProfessors
+
+Use both sources to provide comprehensive, accurate answers. When referencing student reviews, mention that they're from real students. Be helpful, specific, and cite relevant information from both data sources.`
+            },
+            {
+                role: 'system',
+                content: structuredDataContext
+            },
+            {
+                role: 'system',
+                content: reviewContext
+            }
+        ];
+
+        // Add conversation history if provided
+        if (conversationHistory && Array.isArray(conversationHistory)) {
+            messages.push(...conversationHistory.slice(-6)); // Keep last 6 messages for context
+        }
+
+        // Add current question
+        messages.push({
+            role: 'user',
+            content: question
+        });
+
+        // Step 5: Get response from OpenRouter
+        console.log('Sending request to OpenRouter...');
+        const completion = await axios.post(
+            OPENROUTER_API_URL,
+            {
+                model: 'openai/gpt-3.5-turbo',
+                messages: messages,
+                temperature: 0.7,
+                max_tokens: 500
+            },
+            {
+                headers: {
+                    'Authorization': `Bearer ${OPENROUTER_API_KEY}`,
+                    'Content-Type': 'application/json'
+                }
+            }
+        );
+
+        const answer = completion.data.choices[0].message.content;
+        console.log('Received response from OpenRouter');
+        console.log('=== END: RAG-Enhanced Chat Query Successful ===');
+
+        return res.json({
+            answer,
+            sources: {
+                reviewsUsed: ragResult.reviews.length,
+                coursesAvailable: allCourses.length,
+                professorsAvailable: allProfessors.length
+            }
+        });
+
+    } catch (error) {
+        console.error('=== ERROR: RAG-Enhanced Chat Query Failed ===');
+        console.error('Error in chatQuery:', error);
+        return res.status(500).json({ 
+            message: 'Server error: ' + error.message,
+            answer: 'Sorry, I encountered an error processing your question. Please try again.'
+        });
+    }
+};
+
 module.exports = {
     getRecommendations,
     getAllProfessors,
     getProfessorById,
     getAllCourses,
     getCourseByIdentifier,
-    getCoursesByProfessorId
+    getCoursesByProfessorId,
+    chatQuery
 }; 

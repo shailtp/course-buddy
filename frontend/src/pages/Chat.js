@@ -4,9 +4,6 @@ import axios from 'axios';
 import './PagesCommon.css';
 import './Chat.css';
 
-const OPENROUTER_API_KEY = process.env.REACT_APP_OPENROUTER_KEY;
-const OPENROUTER_API_URL = 'https://openrouter.ai/api/v1/chat/completions';
-
 const SAMPLE_QUESTIONS = [
     'What are the prerequisites for CSC 340?',
     "Tell me about Professor Timothy Sun's teaching style and his reviews.",
@@ -35,23 +32,10 @@ export default function Chat() {
     const chatEndRef = useRef(null);
     const [hasUserInput, setHasUserInput] = useState(false);
 
-    // Fetch context data (courses, professors) once on mount
-    const [context, setContext] = useState({ courses: [], professors: [] });
+    // Context is now handled by backend (RAG + structured data)
     useEffect(() => {
-        const fetchContext = async () => {
-            try {
-                const [coursesRes, professorsRes] = await Promise.all([
-                    axios.get('http://localhost:5001/api/courses'),
-                    axios.get('http://localhost:5001/api/professors')
-                ]);
-                setContext({ courses: coursesRes.data, professors: professorsRes.data });
-                setContextLoaded(true);
-            } catch (err) {
-                setError('Failed to load context data. You can still chat, but answers may be less accurate.');
-                setContextLoaded(true);
-            }
-        };
-        fetchContext();
+        // Just mark as loaded since backend handles all context
+        setContextLoaded(true);
     }, []);
 
     useEffect(() => {
@@ -62,38 +46,41 @@ export default function Chat() {
         if (e) e.preventDefault();
         const question = overrideInput !== undefined ? overrideInput : input;
         if (!question.trim()) return;
-        setMessages([...messages, { role: 'user', content: question }]);
+        
+        const newMessages = [...messages, { role: 'user', content: question }];
+        setMessages(newMessages);
         setInput('');
         setLoading(true);
         setError(null);
         setHasUserInput(true);
+        
         try {
-            // Compose context for the LLM
-            const contextPrompt = `Courses: ${JSON.stringify(context.courses)}\nProfessors: ${JSON.stringify(context.professors)}\nChat history: ${JSON.stringify(messages)}`;
-            const openrouterMessages = [
-                { role: 'system', content: 'You are Course Buddy GPT, a helpful academic assistant for SFSU Computer Science students. Use the provided context to answer questions about courses, professors, and give personalized recommendations.' },
-                { role: 'system', content: contextPrompt },
-                ...messages,
-                { role: 'user', content: question }
-            ];
+            // Use RAG-enhanced backend endpoint (hybrid approach)
+            const token = localStorage.getItem('token');
             const res = await axios.post(
-                OPENROUTER_API_URL,
+                'http://localhost:5001/api/chat/query',
                 {
-                    model: 'openai/gpt-3.5-turbo',
-                    messages: openrouterMessages,
-                    max_tokens: 512
+                    question: question,
+                    conversationHistory: messages
                 },
                 {
                     headers: {
-                        'Authorization': `Bearer ${OPENROUTER_API_KEY}`,
+                        'Authorization': `Bearer ${token}`,
                         'Content-Type': 'application/json'
                     }
                 }
             );
-            const reply = res.data.choices?.[0]?.message?.content || 'Sorry, I could not generate a response.';
+            
+            const reply = res.data.answer || 'Sorry, I could not generate a response.';
             setMessages(msgs => [...msgs, { role: 'assistant', content: reply }]);
+            
+            // Optional: Log sources used for debugging
+            if (res.data.sources) {
+                console.log('Response sources:', res.data.sources);
+            }
         } catch (err) {
-            setError('Failed to get a response from OpenRouter.');
+            console.error('Chat error:', err);
+            setError('Failed to get a response. Please try again.');
         } finally {
             setLoading(false);
         }

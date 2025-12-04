@@ -1,0 +1,110 @@
+{
+  "metadata": {
+    "description": "Gold set for RAG system evaluation - Questions about professor reviews",
+    "total_questions": 10,
+    "categories": ["professor_teaching_style", "course_difficulty", "course_structure", "professor_comparison"]
+  },
+  "test_cases": [
+    {
+      "id": "rag_001",
+      "category": "professor_teaching_style",
+      "question": "How does Professor Timothy Sun explain complex concepts in CSC 510?",
+      "expected_professors": ["Timothy Sun"],
+      "expected_courses": ["CSC 510"],
+      "expected_context_keywords": ["breaks down", "school level", "clear", "concepts"],
+      "ground_truth_answer": "Professor Sun breaks down complex algorithms to school-level concepts and builds upon them. His explanations are clear and he uses examples effectively to make difficult material easier to understand.",
+      "relevant_review_ids": ["review_003", "review_004", "review_007"]
+    },
+    {
+      "id": "rag_002",
+      "category": "course_structure",
+      "question": "What is the homework and exam structure for CSC 510?",
+      "expected_professors": ["Timothy Sun"],
+      "expected_courses": ["CSC 510"],
+      "expected_context_keywords": ["6 homework", "homework", "midterm", "final", "exams"],
+      "ground_truth_answer": "CSC 510 has 6 homework assignments with 2-3 weeks to complete each one. There is 1 midterm and 1 final exam. Professor Sun provides practice exams with solutions, and the actual exams are similar to the practice ones.",
+      "relevant_review_ids": ["review_001", "review_002", "review_004", "review_006"]
+    },
+    {
+      "id": "rag_003",
+      "category": "professor_teaching_style",
+      "question": "Is Professor Timothy Sun helpful with homework and available for questions?",
+      "expected_professors": ["Timothy Sun"],
+      "expected_courses": ["CSC 510"],
+      "expected_context_keywords": ["helpful", "office hours", "Discord", "available", "support"],
+      "ground_truth_answer": "Yes, Professor Sun is very helpful on homework and ensures every student has the support they need. He's always available on Discord and students highly recommend taking advantage of his office hours.",
+      "relevant_review_ids": ["review_003", "review_004"]
+    },
+    {
+      "id": "rag_004",
+      "category": "course_difficulty",
+      "question": "How difficult are the exams in CSC 510 with Professor Sun?",
+      "expected_professors": ["Timothy Sun"],
+      "expected_courses": ["CSC 510"],
+      "expected_context_keywords": ["easy", "practice exam", "similar", "cheat sheet", "tests"],
+      "ground_truth_answer": "The exams are manageable if you attend lectures and do the homework. The practice exams are very similar to the actual tests. Some sections allow a cheat sheet. If you study the practice exams and attend class, the tests are not too difficult.",
+      "relevant_review_ids": ["review_002", "review_003", "review_006"]
+    },
+    {
+      "id": "rag_005",
+      "category": "professor_teaching_style",
+      "question": "What do students say about Professor Timothy Sun's lecture quality?",
+      "expected_professors": ["Timothy Sun"],
+      "expected_courses": ["CSC 510"],
+      "expected_context_keywords": ["lectures", "clear", "coherence", "slides", "notes"],
+      "ground_truth_answer": "Students praise Professor Sun's lectures for having coherence, which they note is rare in the CS department. The slides are clear and concise. He recommends writing notes on what he says, not just what's on the slides. Lectures aren't recorded but slides are uploaded.",
+      "relevant_review_ids": ["review_006", "review_007"]
+    },
+    {
+      "id": "rag_006",
+      "category": "professor_comparison",
+      "question": "How is Professor Jingyi Wang's teaching style?",
+      "expected_professors": ["Jingyi Wang"],
+      "expected_courses": ["CSC 256", "CSC 652"],
+      "expected_context_keywords": ["clear", "fast", "knowledgeable", "helpful", "available"],
+      "ground_truth_answer": "Professor Wang is knowledgeable and her lectures are generally clear. However, she teaches very fast and students may not get time to process the material. She's helpful and available during office hours. Students recommend keeping up with assignments to understand her lectures better.",
+      "relevant_review_ids": ["review_009", "review_010", "review_011", "review_012"]
+    },
+    {
+      "id": "rag_007",
+      "category": "course_difficulty",
+      "question": "Is Professor Jingyi Wang hard to reach or get help from?",
+      "expected_professors": ["Jingyi Wang"],
+      "expected_courses": ["CSC 256"],
+      "expected_context_keywords": ["hard to reach", "available", "office hours", "help"],
+      "ground_truth_answer": "There are mixed reviews. Some students say she's extremely hard to reach and difficult to get help from. Others say she's always available during office hours and helpful when you need assistance. It seems to vary by student experience.",
+      "relevant_review_ids": ["review_010", "review_011"]
+    },
+    {
+      "id": "rag_008",
+      "category": "course_structure",
+      "question": "What is the workload like for CSC 256 with Professor Wang?",
+      "expected_professors": ["Jingyi Wang"],
+      "expected_courses": ["CSC 256"],
+      "expected_context_keywords": ["homework", "assignments", "100 points", "effort", "attendance"],
+      "ground_truth_answer": "The class is based on 100 points total, so homework is essential - missing one assignment can significantly impact your grade. You need to put in effort and attendance matters. If you miss one class, it can be hard to catch up. The assignments are good learning opportunities and help understand the lectures.",
+      "relevant_review_ids": ["review_010", "review_011"]
+    },
+    {
+      "id": "rag_009",
+      "category": "course_difficulty",
+      "question": "Is CSC 652 with Professor Wang an easy elective?",
+      "expected_professors": ["Jingyi Wang"],
+      "expected_courses": ["CSC 652"],
+      "expected_context_keywords": ["easy", "elective", "cipher", "encryption", "math", "midterm", "final project"],
+      "ground_truth_answer": "Yes, CSC 652 is considered an easy elective. The course covers ciphers and encryption with a small amount of math (not too heavy if you've passed linear algebra). There's 1 open-notes midterm similar to the sample, and 1 final project (a 3-page essay on an encryption method or research paper). Attendance is only taken a few times.",
+      "relevant_review_ids": ["review_013"]
+    },
+    {
+      "id": "rag_010",
+      "category": "professor_comparison",
+      "question": "Between Timothy Sun and Jingyi Wang, who is considered more helpful outside of class?",
+      "expected_professors": ["Timothy Sun", "Jingyi Wang"],
+      "expected_courses": ["CSC 510", "CSC 256", "CSC 652"],
+      "expected_context_keywords": ["helpful", "office hours", "available", "Discord", "support"],
+      "ground_truth_answer": "Based on student reviews, Timothy Sun is consistently praised for being very helpful, always available on Discord, and ensuring every student has support. Jingyi Wang has mixed reviews - some students find her helpful in office hours, while others find her hard to reach. Overall, Timothy Sun appears to have more consistently positive feedback for availability and helpfulness.",
+      "relevant_review_ids": ["review_003", "review_004", "review_010", "review_011", "review_012"]
+    }
+  ]
+}
+

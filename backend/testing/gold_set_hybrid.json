@@ -1,0 +1,130 @@
+{
+  "metadata": {
+    "description": "Gold set for Hybrid system evaluation - Mix of structured API and RAG queries",
+    "total_questions": 12,
+    "categories": ["logic_heavy", "vague_unstructured", "hybrid"]
+  },
+  "test_cases": [
+    {
+      "id": "hybrid_001",
+      "category": "logic_heavy",
+      "type": "structured_api",
+      "question": "What are the prerequisites for CSC 340?",
+      "expected_data_source": "structured",
+      "expected_answer_contains": ["prerequisite", "CSC"],
+      "requires_rag": false,
+      "requires_structured_data": true
+    },
+    {
+      "id": "hybrid_002",
+      "category": "logic_heavy",
+      "type": "structured_api",
+      "question": "List all courses that have no prerequisites",
+      "expected_data_source": "structured",
+      "expected_answer_contains": ["CSC", "no prerequisite", "null"],
+      "requires_rag": false,
+      "requires_structured_data": true
+    },
+    {
+      "id": "hybrid_003",
+      "category": "logic_heavy",
+      "type": "structured_api",
+      "question": "Which courses does Professor Timothy Sun teach?",
+      "expected_data_source": "structured",
+      "expected_answer_contains": ["CSC", "Timothy Sun"],
+      "requires_rag": false,
+      "requires_structured_data": true
+    },
+    {
+      "id": "hybrid_004",
+      "category": "vague_unstructured",
+      "type": "rag",
+      "question": "I want a professor who breaks down complex topics into simpler concepts. Who should I take?",
+      "expected_data_source": "rag",
+      "expected_answer_contains": ["Timothy Sun", "breaks down", "school level", "clear"],
+      "requires_rag": true,
+      "requires_structured_data": false
+    },
+    {
+      "id": "hybrid_005",
+      "category": "vague_unstructured",
+      "type": "rag",
+      "question": "I'm looking for a course where the professor provides good practice materials before exams",
+      "expected_data_source": "rag",
+      "expected_answer_contains": ["Timothy Sun", "CSC 510", "practice exam", "similar"],
+      "requires_rag": true,
+      "requires_structured_data": false
+    },
+    {
+      "id": "hybrid_006",
+      "category": "vague_unstructured",
+      "type": "rag",
+      "question": "Which professor is known for having coherent lectures in the CS department?",
+      "expected_data_source": "rag",
+      "expected_answer_contains": ["Timothy Sun", "coherence", "lectures"],
+      "requires_rag": true,
+      "requires_structured_data": false
+    },
+    {
+      "id": "hybrid_007",
+      "category": "hybrid",
+      "type": "both",
+      "question": "I need to take CSC 510. What do students say about it and who teaches it?",
+      "expected_data_source": "both",
+      "expected_answer_contains": ["Timothy Sun", "homework", "exams", "algorithms"],
+      "requires_rag": true,
+      "requires_structured_data": true
+    },
+    {
+      "id": "hybrid_008",
+      "category": "hybrid",
+      "type": "both",
+      "question": "Which professor teaching CSC 256 is described as helpful by students?",
+      "expected_data_source": "both",
+      "expected_answer_contains": ["Jingyi Wang", "helpful", "available", "office hours"],
+      "requires_rag": true,
+      "requires_structured_data": true
+    },
+    {
+      "id": "hybrid_009",
+      "category": "hybrid",
+      "type": "both",
+      "question": "Is there an easy upper-division elective? What do students say about it?",
+      "expected_data_source": "both",
+      "expected_answer_contains": ["CSC 652", "easy", "elective", "Jingyi Wang"],
+      "requires_rag": true,
+      "requires_structured_data": true
+    },
+    {
+      "id": "hybrid_010",
+      "category": "logic_heavy",
+      "type": "structured_api",
+      "question": "What is the overall rating for Professor Timothy Sun?",
+      "expected_data_source": "structured",
+      "expected_answer_contains": ["rating", "Timothy Sun"],
+      "requires_rag": false,
+      "requires_structured_data": true
+    },
+    {
+      "id": "hybrid_011",
+      "category": "vague_unstructured",
+      "type": "rag",
+      "question": "I need a professor who is always available to help. Any recommendations?",
+      "expected_data_source": "rag",
+      "expected_answer_contains": ["Timothy Sun", "available", "Discord", "office hours", "support"],
+      "requires_rag": true,
+      "requires_structured_data": false
+    },
+    {
+      "id": "hybrid_012",
+      "category": "hybrid",
+      "type": "both",
+      "question": "What courses are available with professors who have high ratings and good student reviews about teaching style?",
+      "expected_data_source": "both",
+      "expected_answer_contains": ["Timothy Sun", "rating", "clear", "helpful"],
+      "requires_rag": true,
+      "requires_structured_data": true
+    }
+  ]
+}
+

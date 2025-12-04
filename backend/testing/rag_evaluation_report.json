@@ -1,0 +1,274 @@
+{
+  "timestamp": "2025-12-04T18:29:26.874Z",
+  "goldSet": {
+    "description": "Gold set for RAG system evaluation - Questions about professor reviews",
+    "total_questions": 10,
+    "categories": [
+      "professor_teaching_style",
+      "course_difficulty",
+      "course_structure",
+      "professor_comparison"
+    ]
+  },
+  "results": [
+    {
+      "id": "rag_001",
+      "question": "How does Professor Timothy Sun explain complex concepts in CSC 510?",
+      "category": "professor_teaching_style",
+      "retrieved_reviews": [
+        "review_008",
+        "review_007",
+        "review_005",
+        "review_006",
+        "review_003"
+      ],
+      "expected_reviews": [
+        "review_003",
+        "review_004",
+        "review_007"
+      ],
+      "metrics": {
+        "context_recall": 0.6666666666666666,
+        "context_precision": 0.4,
+        "context_relevance": 0.75,
+        "answer_relevance": 0.75,
+        "entity_accuracy": 0.5,
+        "f1_score": 0.5
+      }
+    },
+    {
+      "id": "rag_002",
+      "question": "What is the homework and exam structure for CSC 510?",
+      "category": "course_structure",
+      "retrieved_reviews": [
+        "review_002",
+        "review_006",
+        "review_001",
+        "review_004",
+        "review_013"
+      ],
+      "expected_reviews": [
+        "review_001",
+        "review_002",
+        "review_004",
+        "review_006"
+      ],
+      "metrics": {
+        "context_recall": 1,
+        "context_precision": 0.8,
+        "context_relevance": 1,
+        "answer_relevance": 1,
+        "entity_accuracy": 1,
+        "f1_score": 0.888888888888889
+      }
+    },
+    {
+      "id": "rag_003",
+      "question": "Is Professor Timothy Sun helpful with homework and available for questions?",
+      "category": "professor_teaching_style",
+      "retrieved_reviews": [
+        "review_004",
+        "review_002",
+        "review_003",
+        "review_006",
+        "review_008"
+      ],
+      "expected_reviews": [
+        "review_003",
+        "review_004"
+      ],
+      "metrics": {
+        "context_recall": 1,
+        "context_precision": 0.4,
+        "context_relevance": 1,
+        "answer_relevance": 1,
+        "entity_accuracy": 1,
+        "f1_score": 0.5714285714285715
+      }
+    },
+    {
+      "id": "rag_004",
+      "question": "How difficult are the exams in CSC 510 with Professor Sun?",
+      "category": "course_difficulty",
+      "retrieved_reviews": [
+        "review_002",
+        "review_006",
+        "review_008",
+        "review_007",
+        "review_004"
+      ],
+      "expected_reviews": [
+        "review_002",
+        "review_003",
+        "review_006"
+      ],
+      "metrics": {
+        "context_recall": 0.6666666666666666,
+        "context_precision": 0.4,
+        "context_relevance": 1,
+        "answer_relevance": 1,
+        "entity_accuracy": 1,
+        "f1_score": 0.5
+      }
+    },
+    {
+      "id": "rag_005",
+      "question": "What do students say about Professor Timothy Sun's lecture quality?",
+      "category": "professor_teaching_style",
+      "retrieved_reviews": [
+        "review_005",
+        "review_007",
+        "review_006",
+        "review_003",
+        "review_004"
+      ],
+      "expected_reviews": [
+        "review_006",
+        "review_007"
+      ],
+      "metrics": {
+        "context_recall": 1,
+        "context_precision": 0.4,
+        "context_relevance": 1,
+        "answer_relevance": 1,
+        "entity_accuracy": 0.5,
+        "f1_score": 0.5714285714285715
+      }
+    },
+    {
+      "id": "rag_006",
+      "question": "How is Professor Jingyi Wang's teaching style?",
+      "category": "professor_comparison",
+      "retrieved_reviews": [
+        "review_009",
+        "review_011",
+        "review_012",
+        "review_010",
+        "review_005"
+      ],
+      "expected_reviews": [
+        "review_009",
+        "review_010",
+        "review_011",
+        "review_012"
+      ],
+      "metrics": {
+        "context_recall": 1,
+        "context_precision": 0.8,
+        "context_relevance": 1,
+        "answer_relevance": 1,
+        "entity_accuracy": 0,
+        "f1_score": 0.888888888888889
+      }
+    },
+    {
+      "id": "rag_007",
+      "question": "Is Professor Jingyi Wang hard to reach or get help from?",
+      "category": "course_difficulty",
+      "retrieved_reviews": [
+        "review_010",
+        "review_011",
+        "review_012",
+        "review_009",
+        "review_013"
+      ],
+      "expected_reviews": [
+        "review_010",
+        "review_011"
+      ],
+      "metrics": {
+        "context_recall": 1,
+        "context_precision": 0.4,
+        "context_relevance": 1,
+        "answer_relevance": 1,
+        "entity_accuracy": 0,
+        "f1_score": 0.5714285714285715
+      }
+    },
+    {
+      "id": "rag_008",
+      "question": "What is the workload like for CSC 256 with Professor Wang?",
+      "category": "course_structure",
+      "retrieved_reviews": [
+        "review_010",
+        "review_011",
+        "review_002",
+        "review_013",
+        "review_012"
+      ],
+      "expected_reviews": [
+        "review_010",
+        "review_011"
+      ],
+      "metrics": {
+        "context_recall": 1,
+        "context_precision": 0.4,
+        "context_relevance": 1,
+        "answer_relevance": 1,
+        "entity_accuracy": 0,
+        "f1_score": 0.5714285714285715
+      }
+    },
+    {
+      "id": "rag_009",
+      "question": "Is CSC 652 with Professor Wang an easy elective?",
+      "category": "course_difficulty",
+      "retrieved_reviews": [
+        "review_013",
+        "review_010",
+        "review_011",
+        "review_006",
+        "review_002"
+      ],
+      "expected_reviews": [
+        "review_013"
+      ],
+      "metrics": {
+        "context_recall": 1,
+        "context_precision": 0.2,
+        "context_relevance": 1,
+        "answer_relevance": 1,
+        "entity_accuracy": 0,
+        "f1_score": 0.33333333333333337
+      }
+    },
+    {
+      "id": "rag_010",
+      "question": "Between Timothy Sun and Jingyi Wang, who is considered more helpful outside of class?",
+      "category": "professor_comparison",
+      "retrieved_reviews": [
+        "review_009",
+        "review_004",
+        "review_003",
+        "review_008",
+        "review_001"
+      ],
+      "expected_reviews": [
+        "review_003",
+        "review_004",
+        "review_010",
+        "review_011",
+        "review_012"
+      ],
+      "metrics": {
+        "context_recall": 0.4,
+        "context_precision": 0.4,
+        "context_relevance": 1,
+        "answer_relevance": 1,
+        "entity_accuracy": 0,
+        "f1_score": 0.4000000000000001
+      }
+    }
+  ],
+  "aggregateMetrics": {
+    "avg_context_recall": 0.8733333333333333,
+    "avg_context_precision": 0.4600000000000001,
+    "avg_context_relevance": 0.975,
+    "avg_answer_relevance": 0.975,
+    "avg_entity_accuracy": 0.4,
+    "avg_f1_score": 0.5796825396825397,
+    "total_tests": 10,
+    "successful_tests": 10,
+    "failed_tests": 0
+  }
+}

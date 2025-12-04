@@ -1,0 +1,82 @@
+{
+  "reviews": [
+    {
+      "id": "review_001",
+      "professor_name": "Timothy Sun",
+      "course": "CSC 510",
+      "review_text": "Took this class last semester, and outside the first few classes and test day, no one ever showed up to class. 6 homework assignments that aren't too difficult, and the midterm/final in person. only ended up with such a bad grade because of the 0 on the midterm i got for other reasons, but easy class nonetheless"
+    },
+    {
+      "id": "review_002",
+      "professor_name": "Timothy Sun",
+      "course": "CSC 510",
+      "review_text": "I recently took CSC 510 with Professor Timothy Sun. The class structure includes 6 homeworks, with 2-3 weeks allotted to complete each one. The homeworks are graded by the TAs, and Professor Sun curves the grades at the end of semester. He provides practice midterm and final with solution. Also, actual exams are similar to practice exams."
+    },
+    {
+      "id": "review_003",
+      "professor_name": "Timothy Sun",
+      "course": "CSC 510",
+      "review_text": "I don't normally rate professors but professor Sun is an exception. Never have i thought i would enjoy learning and writing algorithms so much. He breaks everything down to school level concepts and starts building on. you only have 5 or 6 homework and two tests which are easy, if you don't miss classes. take advantage of the office hours, I DID."
+    },
+    {
+      "id": "review_004",
+      "professor_name": "Timothy Sun",
+      "course": "CSC 510",
+      "review_text": "Took him because Jose's class was full, never regrated it. very clear and helpful on Homework. Ensure that every student has support they need to succeed. 6 homework, 1 midterm,1 final. Always available in Discord, and very humble. And practice exam is best to succeed in exams. No cheat sheet allowed. I think he is the best professor for CSC510."
+    },
+    {
+      "id": "review_005",
+      "professor_name": "Timothy Sun",
+      "course": "CSC 510",
+      "review_text": "The way the course material was delivered often left me struggling to grasp the concepts, and the examples provided in lectures didn't effectively clarify the main ideas. I believe there's room for improvement in his teaching method and how he engages with students to enhance their learning experience."
+    },
+    {
+      "id": "review_006",
+      "professor_name": "Timothy Sun",
+      "course": "CSC 510",
+      "review_text": "VERY good at teaching CSC 510. Lectures aren't recorded but slides are uploaded and clear and concise to understand. Homework is easy to understand and follow, I just turned a lot of them in late unfortunately. Practice tests are similar to actual tests, and 1 page of cheat-sheet is allowed. Highly recommend if you're taking CSC 510."
+    },
+    {
+      "id": "review_007",
+      "professor_name": "Timothy Sun",
+      "course": "CSC 510",
+      "review_text": "Great professor, his lectures actually have coherence which is honestly rare for the CS department at SFSU. The material is difficult but I feel like Sun makes it easier with his teaching. Write notes on what he says, not as much on what he has on slides."
+    },
+    {
+      "id": "review_008",
+      "professor_name": "Timothy Sun",
+      "course": "CSC 510",
+      "review_text": "Timothy is a gentle professor on assignment, his explains ideas in algorithms clear and precisely. HWs are not that hard if you do study materials. This class should be harder, and you should learn more from this topic."
+    },
+    {
+      "id": "review_009",
+      "professor_name": "Jingyi Wang",
+      "course": "CSC 256",
+      "review_text": "She is the best. Her lectures are clear. She is kind. Knowledgeable in her field. Helpful. I would take her again."
+    },
+    {
+      "id": "review_010",
+      "professor_name": "Jingyi Wang",
+      "course": "CSC 256",
+      "review_text": "Professor is extremely hard to reach so if you need anything from her good luck. The class is based on 100 points total so homework is essential. If you miss one class, you may as well just not show up again. Teaches extremely fast and hard to understand at times because we do not get even a minute to process what was just taught."
+    },
+    {
+      "id": "review_011",
+      "professor_name": "Jingyi Wang",
+      "course": "CSC 256",
+      "review_text": "She's an okay professor. She knows her material but sometime is not clear on the lecture. Her assignments are good and is always available if you need help. A way to understand her lecture is to keep up with the assignments she posts. Don't think this will be easy. You will have to put some effort."
+    },
+    {
+      "id": "review_012",
+      "professor_name": "Jingyi Wang",
+      "course": "CSC 256",
+      "review_text": "I think she is a very wonderful professor and she cares her students a lot. I just wished I attended more but alas time constraints. Her lectures might bore you but it would be wiser to just listen because they are important. Her reviews sort of help for the quizzes, midterm and finals but she is very helpful in office hours. Take her if you can!"
+    },
+    {
+      "id": "review_013",
+      "professor_name": "Jingyi Wang",
+      "course": "CSC 652",
+      "review_text": "CSC652 Spring 2023 Easy elective , learned about cipher and encryption. Small amount of math in this class not really heavy if you passed linear algebra. HW is based on lecture, 1 midterm exam open notes and almost the same as sample, 1 final project 3 page essay on an encryption of your choice or research paper. Attendance taken only a few times."
+    }
+  ]
+}

@@ -6,12 +6,16 @@ const {
     getProfessorById,
     getAllCourses,
     getCourseByIdentifier,
-    getCoursesByProfessorId 
+    getCoursesByProfessorId,
+    chatQuery
 } = require('../controllers/recommendationController');
 const { protect } = require('../middleware/authMiddleware');
 
 // Main recommendation route
 router.post('/recommendations', protect, getRecommendations);
+
+// RAG-enhanced chat route
+router.post('/chat/query', protect, chatQuery);
 
 // Professor routes
 router.get('/professors', getAllProfessors);
